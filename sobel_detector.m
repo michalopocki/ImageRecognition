@@ -1,4 +1,4 @@
-function [resultImg] = sobel_detector(image)
+function [resultImg] = sobel_detector(image, threshold)
 
     %Sobel operator
     Gx = [-1 0 1; -2 0 2; -1 0 1]/4;
@@ -12,5 +12,9 @@ function [resultImg] = sobel_detector(image)
     resultImg = sqrt(imgGx.^2 + imgGy.^2);
 
     resultImg = im2uint8(resultImg);
+    
+    if(threshold >= 0)
+        resultImg = thresholding(resultImg, threshold);
+    end
 end
 
