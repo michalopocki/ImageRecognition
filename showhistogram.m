@@ -7,8 +7,8 @@ function showhistogram(imageGray, t)
         xline(t,'-',['Próg T = ',num2str(t)]);
     end
 
-    xlabel('Jasność pikseli J_i');
-    ylabel('Ilość pikseli h(J_i)');
+    xlabel('Intensywność J_i');
+    ylabel('Liczba pikseli h(J_i)');
     title('Histogram obrazu monochromatycznego')
 end
 
