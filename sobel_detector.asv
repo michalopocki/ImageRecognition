@@ -1,8 +1,4 @@
 function [resultImg, beforeThresh] = sobel_detector(image, threshold)
-    %image - 2d image
-    %threshold - values from 0 to 255
-    %resultImg - image with thresholing if applied
-    %beforeThresh - image before thresholding
 
     %Sobel operator
     Gx = [-1 0 1; -2 0 2; -1 0 1]/4;
@@ -15,11 +11,10 @@ function [resultImg, beforeThresh] = sobel_detector(image, threshold)
     %Magnitude
     resultImg = sqrt(imgGx.^2 + imgGy.^2);
 
-    resultImg = im2uint8(resultImg);  
-    beforeThresh = resultImg;
+    resultImg = im2uint8(resultImg);
     
     if(threshold >= 0)
-        resultImg = thresholding(resultImg, threshold);
+        beforeThresh = thresholding(resultImg, threshold);
     end
 end
 
